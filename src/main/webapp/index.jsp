@@ -13,7 +13,7 @@
 
 <meta charset="UTF-8">
 <div class="container">
-    <h1 class="display-1">Welcome! Servlet-PROJECT</h1>
+    <h1 class="display-1">Welcome! Servlet-Project</h1>
     <figcaption class="blockquote-footer"><%= new java.util.Date() %></figcaption>
 </div>
 
@@ -27,9 +27,12 @@
         <label for="floatingPassword">Password</label>
     </div>
     <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Sing in</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">--Login--</button>
     </div>
 </form>
+<div class="col-auto">
+    <a href="newUser.jsp" type="button" class="btn btn-secondary btn-lg btn-block">-Sing up-</a>
+</div>
 
 </body>
 </html>
