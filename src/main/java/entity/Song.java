@@ -21,6 +21,10 @@ public class Song {
     @Column(name = "single", nullable = false, length = 45)
     private String single;
 
+    @ManyToOne
+    @JoinColumn(name = "create_by")
+    private User createBy;
+
     public Song() {
     }
 
@@ -32,10 +36,6 @@ public class Song {
         this.single = single;
         this.createBy = createBy;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "create_by")
-    private User createBy;
 
     public User getCreateBy() {
         return createBy;

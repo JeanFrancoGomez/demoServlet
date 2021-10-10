@@ -25,14 +25,16 @@ public class CreateNewUser extends HttpServlet {
 
         try {
             ResultSet resultQuery = addNewUser(user);
+            String idUser;
             String emailRes;
             String passwRes;
 
             int i=1;
             while(resultQuery.next()){
+                idUser = resultQuery.getString("id_user");
                 emailRes = resultQuery.getString("email");
                 passwRes = resultQuery.getString("password");
-                resp.getWriter().write((i++)+" "+emailRes+" "+passwRes+"\n");
+                resp.getWriter().write(idUser+" "+emailRes+" "+passwRes+"\n");
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -44,8 +46,8 @@ public class CreateNewUser extends HttpServlet {
 
 
     private ResultSet addNewUser(User user) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_demoJSP", "root", "JeanFra12369874!");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_demoJSP?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "root");
         Statement statement = connection.createStatement();
 
         String query = "SELECT * FROM users";
